@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FSFTN Summer Camp\'15</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="notifications">Notifications</string>
+    <string name="map">Map</string>
+    <string name="schedule">Schedule</string>
+    <string name="contactDetails">Contact Details</string>
+    <string name="title_activity_notifications">Notifications</string>
+    <string name="title_activity_schedule">Schedule</string>
+    <string name="title_activity_contacts">Contact Us</string>
+    <string name="ag">Aravind Gopalakrishnan</string>
+    <string name="ra">Raj Anand</string>
+    <string name="office">FSFTN Office</string>
+    <string name="mailus">Mail Us</string>
+    <string name="dayone">June 8</string>
+    <string name="daytwo">June 9</string>
+    <string name="daythree">June 10</string>
+    <string name="dayfour">June 11</string>
+    <string name="dayfive">June 12</string>
+    <string name="daysix">June 13</string>
+    <string name="activity11">Free Software Philosophy</string>
+    <string name="activity12">GNU/Linux Installation</string>
+    <string name="activity13">Into to file system and Shell scripting</string>
+    <string name="activity14">Git &amp; Github</string>
+    <string name="activity21">Wikipedia</string>
+    <string name="activity22">Blender</string>
+    <string name="activity23">Tamil Computing &amp; Localisation</string>
+    <string name="activity24">Cultural Event</string>
+    <string name="activity31">Ruby</string>
+    <string name="activity32">HTML,CSS, JS</string>
+    <string name="activity33">Firefox OS &amp; Contributing to Mozilla</string>
+    <string name="activity41">Ruby On Rails</string>
+    <string name="activity42">Building a webapp using RoR</string>
+    <string name="activity43">Project Showcase</string>
+    <string name="activity51">Internet Surveillence, Privacy, Tor, Mesh Networks</string>
+    <string name="activity52">Into to Node.js, MongoDB &amp; Meteor</string>
+    <string name="activity53">Open Hardware</string>
+    <string name="activity54">Project Showcase Continuation</string>
+    <string name="activity61">Cloud &amp; Containers</string>
+    <string name="activity62">Getting started with Free Software Contribution</string>
+    <string name="activity63">Net Neutrality</string>
+    <string name="activity64">SWIFT</string>
+    <string name="activity65">How to form a GLUG &amp; What\'s next?</string>
+    <string name="activity66">Certificate distribution</string>
+</resources>
