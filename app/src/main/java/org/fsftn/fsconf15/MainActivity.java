@@ -34,7 +34,7 @@ public class MainActivity extends ActionBarActivity {
     String SENDER_ID = "214467984771";
     GoogleCloudMessaging gcm;
     Context context;
-    String regid;
+    String regid = "";
     String TAG = "fsconf";
     int PICK_ACCOUNT_REQUEST = 1;
     String accountName;
@@ -219,9 +219,16 @@ public class MainActivity extends ActionBarActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == PICK_ACCOUNT_REQUEST && resultCode == RESULT_OK) {
             accountName = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
-            String response = sendRegIdToServer(regid, accountName);
-            Log.i(TAG,response);
-            Toast.makeText(context,response,Toast.LENGTH_SHORT);
+            String response = "";
+            if(!regid.equals("")) {
+                response = sendRegIdToServer(regid, accountName);
+                Log.i(TAG, response);
+                Toast.makeText(context, response, Toast.LENGTH_SHORT);
+            }
+            else {
+                Log.i(TAG, "onAcitivityResult >> Invalid regid");
+                Toast.makeText(context, "Invalid regid", Toast.LENGTH_SHORT);
+            }
         }
     }
 }
