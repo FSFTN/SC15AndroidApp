@@ -103,7 +103,9 @@ public class NotificationsActivity extends ActionBarActivity {
 
             nTitleView.setText(nTitle);
 
-            nTimestampView.setText("  " + nTimestamp);
+
+            if(nTimestamp.length() > 20)
+                nTimestampView.setText("  " + nTimestamp.substring(0,nTimestamp.length() - 5));
 
             nContentView.setText(nContent);
 
