@@ -15,6 +15,8 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 public class GcmIntentService extends IntentService {
     String TAG = "fsconf";
     private NotificationManager mNotificationManager;
@@ -71,10 +73,18 @@ public class GcmIntentService extends IntentService {
             if(s!=null) {
                 notifications = new JSONArray(s);
             }
-            Log.i(TAG,notifications.toString());
+            Log.i(TAG, notifications.toString());
             JSONObject newNotification = new JSONObject();
             newNotification.put("title",title);
             newNotification.put("content",content);
+
+            // add timestamp of message reception
+            Calendar curTime = Calendar.getInstance();
+            String timeInReadableFormat = curTime.get(Calendar.DAY_OF_MONTH) + "-" + curTime.get(Calendar.MONTH) + "-" + curTime.get(Calendar.YEAR) +
+                    " " + curTime.get(Calendar.HOUR_OF_DAY) + ":" + curTime.get(Calendar.MINUTE) + ":" + curTime.get(Calendar.SECOND);
+            newNotification.put("timestamp",timeInReadableFormat);
+
+
             notifications.put(newNotification.toString());
             sp.edit().putString("notifications",notifications.toString()).commit();
             Log.i(TAG,notifications.toString());
