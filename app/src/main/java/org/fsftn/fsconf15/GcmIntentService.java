@@ -15,8 +15,10 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 public class GcmIntentService extends IntentService {
-    String TAG = "fsconf";
+    String TAG = "fsconf_notif";
     private NotificationManager mNotificationManager;
     NotificationCompat.Builder builder;
 
@@ -32,19 +34,21 @@ public class GcmIntentService extends IntentService {
 
         if (!extras.isEmpty()) {
             if (GoogleCloudMessaging.MESSAGE_TYPE_SEND_ERROR.equals(messageType)) {
-                sendNotification("FSCONF15","Send error: " + extras.toString());
+                sendNotification("FSCONF15","Send error: " + extras.toString(),"");
             } else if (GoogleCloudMessaging.MESSAGE_TYPE_DELETED.equals(messageType)) {
-                sendNotification("FSCONF15","Deleted messages on server: " +extras.toString());
+                sendNotification("FSCONF15","Deleted messages on server: " +extras.toString(),"");
             } else if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)) {
-                sendNotification(extras.getString("title"),extras.getString("content"));
+                sendNotification(extras.getString("title"),extras.getString("content"),extras.getString("time_stamp"));
             }
         }
-        Log.i(extras.getString("title"),extras.getString("content"));
-        addNotification(extras.getString("title"), extras.getString("content"));
+
+
+        Log.i(TAG,extras.getString("title")+" " + extras.getString("content")+ " @ " + extras.getString("time_stamp"));
+        addNotification(extras.getString("title"), extras.getString("content"), extras.getString("time_stamp"));
         GcmBroadcastReceiver.completeWakefulIntent(intent);
     }
 
-    private void sendNotification(String title, String msg) {
+    private void sendNotification(String title, String msg, String timestamp) {
         int NOTIFICATION_ID = this.getSharedPreferences("org.fsftn.sc15",Context.MODE_PRIVATE).getInt("notificationCount",1234);
         mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -54,8 +58,9 @@ public class GcmIntentService extends IntentService {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.logo)
-                        .setContentTitle(title)
+                        .setContentTitle(title + " @" + timestamp)
                         .setContentText(msg);
+
 
         mBuilder.setContentIntent(contentIntent);
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
@@ -63,7 +68,10 @@ public class GcmIntentService extends IntentService {
         this.getSharedPreferences("org.fsftn.sc15",Context.MODE_PRIVATE).edit().putInt("notificationCount",NOTIFICATION_ID).commit();
     }
 
-    public void addNotification(String title, String content) {
+    public void addNotification(String title, String content, String timestamp) {
+
+        Log.i(TAG,"timestamp> "+timestamp);
+
         try {
             SharedPreferences sp = this.getSharedPreferences("org.fsftn.sc15", Context.MODE_PRIVATE);
             String s = sp.getString("notifications", null);
@@ -71,13 +79,24 @@ public class GcmIntentService extends IntentService {
             if(s!=null) {
                 notifications = new JSONArray(s);
             }
-            Log.i(TAG,notifications.toString());
+            Log.i(TAG, notifications.toString());
             JSONObject newNotification = new JSONObject();
             newNotification.put("title",title);
             newNotification.put("content",content);
+            newNotification.put("timestamp",timestamp);
+
+            Log.i(TAG,"timestamp : " + timestamp);
+
+            // add timestamp of message reception
+            /*Calendar curTime = Calendar.getInstance();
+            String timeInReadableFormat = curTime.get(Calendar.DAY_OF_MONTH) + "-" + curTime.get(Calendar.MONTH) + "-" + curTime.get(Calendar.YEAR) +
+                    " " + curTime.get(Calendar.HOUR_OF_DAY) + ":" + curTime.get(Calendar.MINUTE) + ":" + curTime.get(Calendar.SECOND);
+            newNotification.put("timestamp",timeInReadableFormat);*/
+
+
             notifications.put(newNotification.toString());
             sp.edit().putString("notifications",notifications.toString()).commit();
-            Log.i(TAG,notifications.toString());
+            //Log.i(TAG,notifications.toString());
         }
         catch (Exception e) {
             e.printStackTrace();
