@@ -18,6 +18,7 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Calendar;
 import java.util.Map;
 import java.util.Set;
 
@@ -86,10 +87,11 @@ public class NotificationsActivity extends ActionBarActivity {
 
             View nView = li.inflate(R.layout.notifications_rowlayout,parent,false);
 
-            String nTitle=null,nContent=null;
+            String nTitle=null,nContent=null,nTimestamp="";
             try {
                 nTitle = getItem(position).getString("title");
                 nContent = getItem(position).getString("content");
+                nTimestamp = getItem(position).getString("timestamp");
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -97,8 +99,14 @@ public class NotificationsActivity extends ActionBarActivity {
 
             TextView nTitleView = (TextView) nView.findViewById(R.id.notificationTitleView);
             TextView nContentView = (TextView) nView.findViewById(R.id.notificationContentView);
+            TextView nTimestampView = (TextView) nView.findViewById(R.id.notificationsTimestampView);
 
             nTitleView.setText(nTitle);
+
+
+            if(nTimestamp.length() > 20)
+                nTimestampView.setText("  " + nTimestamp.substring(0,nTimestamp.length() - 5));
+
             nContentView.setText(nContent);
 
             return nView;
