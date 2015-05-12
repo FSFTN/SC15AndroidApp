@@ -25,6 +25,9 @@ import java.util.Set;
 public class NotificationsActivity extends ActionBarActivity {
 
     ListView notificationsView;
+    String TAG = "fsconf_notif";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +38,10 @@ public class NotificationsActivity extends ActionBarActivity {
             String notifications = sp.getString("notifications", "");
             JSONArray notificationsArray = new JSONArray(notifications);
             JSONObject[] nArray = new JSONObject[notificationsArray.length()];
-            for(int i = 0 ; i< notificationsArray.length();i++) {
-                nArray[i] = new JSONObject(notificationsArray.getString(i));
+            //for(int i = notificationsArray.length() - 1; i >= 0; i--) {
+            for(int i = 0; i < notificationsArray.length(); i++) {
+                nArray[i] = new JSONObject(notificationsArray.getString(notificationsArray.length()-i-1));
+                //Log.i(TAG, notificationsArray.getString(i));
             }
             ListAdapter notificationAdapter = new NotificationsAdapter(this, nArray);
             notificationsView.setAdapter(notificationAdapter);
