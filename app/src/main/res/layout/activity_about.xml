@@ -27,7 +27,7 @@
         android:layout_height="60dp"
         android:layout_alignParentLeft="true"
         android:layout_marginRight="8dp"
-        android:src="@drawable/version" />
+        android:src="@drawable/version1" />
 
     <!-- Movie Title -->
     <TextView

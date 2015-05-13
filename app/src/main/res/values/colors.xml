@@ -11,4 +11,8 @@
 
     <color name="link_color">#05c50f</color>
 
+    <color name="event_item_color">#ababab</color>
+    <color name="notif_item_color">#cdcdcd</color>
+    <color name="default_item_color">#dedede</color>
+
 </resources>
