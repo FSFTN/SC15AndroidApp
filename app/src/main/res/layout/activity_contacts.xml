@@ -25,11 +25,13 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_action_call"/>
+                    android:src="@drawable/phone"/>
                 <TextView
                     android:layout_height="match_parent"
                     android:layout_width="wrap_content"
-                    android:text="@string/ag"
+                    android:text="      Aravind\nGopalakrishnan"
+                    android:textStyle="bold|italic"
+                    android:textSize="16sp"
                     android:layout_gravity="center"/>
             </LinearLayout>
         </LinearLayout>
@@ -49,11 +51,13 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_action_call"/>
+                    android:src="@drawable/phone"/>
                 <TextView
                     android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:text="@string/ra"
+                    android:textStyle="bold|italic"
+                    android:textSize="17sp"
                     android:layout_gravity="center"/>
             </LinearLayout>
         </LinearLayout>
@@ -79,12 +83,14 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_action_call"/>
+                    android:src="@drawable/phone"/>
                 <TextView
                     android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:text="@string/office"
-                    android:layout_gravity="center"/>
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -103,11 +109,13 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_action_email"/>
+                    android:src="@drawable/contact"/>
                 <TextView
                     android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:text="@string/mailus"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
                     android:layout_gravity="center"/>
             </LinearLayout>
         </LinearLayout>

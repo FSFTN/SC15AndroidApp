@@ -27,7 +27,7 @@
         android:layout_height="60dp"
         android:layout_alignParentLeft="true"
         android:layout_marginRight="8dp"
-        android:src="@drawable/version" />
+        android:src="@drawable/version1" />
 
     <!-- Movie Title -->
     <TextView
@@ -316,7 +316,7 @@
             android:layout_below="@id/ccontent"
             android:layout_toRightOf="@id/ci"
 
-            android:textSize="13dp"
+            android:textSize="13sp"
             android:textStyle="italic"
             android:text="@string/link_contributors_aravinthk"
             android:textColor="@color/link_color"
@@ -332,7 +332,7 @@
             android:layout_below="@id/contrib_aravinth"
             android:id="@+id/contrib_rajanand"
             android:textStyle="italic"
-            android:textSize="13dp"
+            android:textSize="13sp"
             android:textColor="@color/link_color"
 
             android:clickable="true"
@@ -345,7 +345,7 @@
             android:layout_below="@id/contrib_rajanand"
             android:id="@+id/contrib_suriya"
             android:textStyle="italic"
-            android:textSize="13dp"
+            android:textSize="13sp"
             android:textColor="@color/link_color"
 
             android:linksClickable="true"

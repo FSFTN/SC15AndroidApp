@@ -105,6 +105,9 @@ public class NotificationsActivity extends ActionBarActivity {
                 e.printStackTrace();
             }
 
+
+
+
             TextView nTitleView = (TextView) nView.findViewById(R.id.title);
             TextView nContentView = (TextView) nView.findViewById(R.id.content);
             TextView nTimestampView = (TextView) nView.findViewById(R.id.timestamp);
@@ -120,16 +123,22 @@ public class NotificationsActivity extends ActionBarActivity {
             ImageView thumbnailView = (ImageView) nView.findViewById(R.id.thumbnail);
             switch(nType){
 
+                // set background color of list item
+
                 case 0:
                     thumbnailView.setImageResource(R.drawable.notif);
+                    nView.setBackgroundColor(getResources().getColor(R.color.notif_item_color));
+
                     break;
 
                 case 1:
                     thumbnailView.setImageResource(R.drawable.event);
+                    nView.setBackgroundColor(getResources().getColor(R.color.event_item_color));
                     break;
 
                 default:
                     thumbnailView.setImageResource(R.drawable.ques);
+                    nView.setBackgroundColor(getResources().getColor(R.color.default_item_color));
 
 
             }
