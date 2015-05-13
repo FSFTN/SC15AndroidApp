@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -90,13 +91,15 @@ public class NotificationsActivity extends ActionBarActivity {
 
             LayoutInflater li = LayoutInflater.from(getContext());
 
-            View nView = li.inflate(R.layout.notifications_rowlayout,parent,false);
+            View nView = li.inflate(R.layout.notifications_rowlayout, parent, false);
 
             String nTitle=null,nContent=null,nTimestamp="";
+            int nType = -1;
             try {
                 nTitle = getItem(position).getString("title");
                 nContent = getItem(position).getString("content");
                 nTimestamp = getItem(position).getString("timestamp");
+                nType = Integer.parseInt(getItem(position).getString("type"));
             }
             catch (Exception e) {
                 e.printStackTrace();
@@ -113,6 +116,23 @@ public class NotificationsActivity extends ActionBarActivity {
                 nTimestampView.setText("  " + nTimestamp.substring(0,nTimestamp.length() - 5));
 
             nContentView.setText(nContent);
+
+            ImageView thumbnailView = (ImageView) nView.findViewById(R.id.thumbnail);
+            switch(nType){
+
+                case 0:
+                    thumbnailView.setImageResource(R.drawable.notif);
+                    break;
+
+                case 1:
+                    thumbnailView.setImageResource(R.drawable.event);
+                    break;
+
+                default:
+                    thumbnailView.setImageResource(R.drawable.ques);
+
+
+            }
 
             return nView;
         }

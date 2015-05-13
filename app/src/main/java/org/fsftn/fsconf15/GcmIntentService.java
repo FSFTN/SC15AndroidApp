@@ -44,7 +44,7 @@ public class GcmIntentService extends IntentService {
 
 
         Log.i(TAG,extras.getString("title")+" " + extras.getString("content")+ " @ " + extras.getString("time_stamp"));
-        addNotification(extras.getString("title"), extras.getString("content"), extras.getString("time_stamp"));
+        addNotification(extras.getString("title"), extras.getString("content"), extras.getString("time_stamp"), extras.getString("type"));
         GcmBroadcastReceiver.completeWakefulIntent(intent);
     }
 
@@ -68,9 +68,9 @@ public class GcmIntentService extends IntentService {
         this.getSharedPreferences("org.fsftn.sc15",Context.MODE_PRIVATE).edit().putInt("notificationCount",NOTIFICATION_ID).commit();
     }
 
-    public void addNotification(String title, String content, String timestamp) {
+    public void addNotification(String title, String content, String timestamp, String type) {
 
-        Log.i(TAG,"timestamp> "+timestamp);
+        //Log.i(TAG,"timestamp> "+timestamp);
 
         try {
             SharedPreferences sp = this.getSharedPreferences("org.fsftn.sc15", Context.MODE_PRIVATE);
@@ -84,8 +84,9 @@ public class GcmIntentService extends IntentService {
             newNotification.put("title",title);
             newNotification.put("content",content);
             newNotification.put("timestamp",timestamp);
+            newNotification.put("type",type);
 
-            Log.i(TAG,"timestamp : " + timestamp);
+            Log.i("type_man","----------------- TYPE ------------------- : " + type);
 
             // add timestamp of message reception
             /*Calendar curTime = Calendar.getInstance();
