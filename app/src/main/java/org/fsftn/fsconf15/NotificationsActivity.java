@@ -102,9 +102,9 @@ public class NotificationsActivity extends ActionBarActivity {
                 e.printStackTrace();
             }
 
-            TextView nTitleView = (TextView) nView.findViewById(R.id.notificationTitleView);
-            TextView nContentView = (TextView) nView.findViewById(R.id.notificationContentView);
-            TextView nTimestampView = (TextView) nView.findViewById(R.id.notificationsTimestampView);
+            TextView nTitleView = (TextView) nView.findViewById(R.id.title);
+            TextView nContentView = (TextView) nView.findViewById(R.id.content);
+            TextView nTimestampView = (TextView) nView.findViewById(R.id.timestamp);
 
             nTitleView.setText(nTitle);
 
