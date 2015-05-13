@@ -2,123 +2,357 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="org.fsftn.fsconf15.AboutActivity">
 
 
     <ImageView
-        android:layout_width="150dp"
+        android:layout_width="fill_parent"
         android:layout_height="100dp"
-        android:id="@+id/imageView"
-        android:src="@drawable/logo"
+        android:id="@+id/sc15"
+        android:src="@drawable/about_image_orig"
         android:layout_alignParentLeft="true"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ll1"
-        android:layout_below="@id/imageView"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="63dp"
-        >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/build_version"
-        android:id="@+id/textView"
-
-      />
-
-
-    </LinearLayout>
-
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/str_source_code1"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/ll1"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/str_license"
-        android:id="@+id/textView3"
-        android:layout_marginTop="95dp"
-        android:layout_below="@+id/textView5"
-        android:layout_alignLeft="@+id/textView5"
-        android:layout_alignStart="@+id/textView5" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textView5"
-        android:layout_marginTop="28dp"
-        android:layout_below="@+id/textView2"
-        android:layout_alignLeft="@+id/a_build_version"
-        android:layout_alignStart="@+id/a_build_version" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="135aa424560545c8c98afb2afbdaf389bbc95e4b"
-        android:id="@+id/a_build_version"
-        android:layout_below="@+id/ll1"
-        android:layout_marginTop="27dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/str_q_license"
-        android:id="@+id/textView4"
-        android:layout_marginTop="36dp"
-        android:layout_below="@+id/textView5"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignStart="@+id/textView2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="ORGANIZATION"
-        android:id="@+id/q_org"
-        android:layout_below="@+id/textView3"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_marginTop="34dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Free Software Foundation TN"
-        android:id="@+id/a_org"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/q_org"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignStart="@+id/textView3" />
-
+        android:layout_below="@id/sc15"
+        android:layout_marginTop="20dp"
+        android:id="@+id/version">
+    <!-- Thumbnail Image -->
     <ImageView
-        android:layout_width="180dp"
-        android:layout_height="100dp"
-        android:id="@+id/imageView2"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView"
-        android:src="@drawable/logo1" />
+        android:id="@+id/vi"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/version" />
 
+    <!-- Movie Title -->
+    <TextView
+        android:id="@+id/vtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/vi"
+        android:layout_toRightOf="@+id/vi"
+        android:text="Version v1.0"
+        android:textSize="@dimen/title"
+        android:textStyle="bold" />
+
+    <!-- Rating -->
+    <TextView
+        android:id="@+id/vcontent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vtitle"
+        android:layout_marginTop="1dip"
+        android:text="Commit : 7dae761"
+        android:layout_toRightOf="@+id/vi"
+        android:textSize="@dimen/rating" />
+
+
+
+    <!-- Release Year -->
+    <TextView
+        android:id="@+id/vtimestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vcontent"
+        android:layout_toRightOf="@+id/vi"
+        android:textColor="@color/year"
+        android:text="13-05-2015 3:02 PM GMT+5:30"
+        android:textSize="@dimen/year" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/id_version"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/version"
+        android:background="@color/list_divider"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="8dp"/>
+
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_version"
+        android:layout_marginTop="8dp"
+        android:id="@+id/layout_url"
+        >
+        <!-- Thumbnail Image -->
+        <ImageView
+            android:id="@+id/ui"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/org" />
+
+        <!-- Movie Title -->
+        <TextView
+            android:id="@+id/utitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/ui"
+            android:layout_toRightOf="@id/ui"
+            android:text="http://fsftnsummercamp.org/"
+            android:autoLink="web"
+            android:textSize="@dimen/title"
+            android:textStyle="bold" />
+
+        <!-- Rating -->
+        <TextView
+            android:id="@+id/ucontent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/utitle"
+            android:layout_marginTop="1dip"
+            android:text="Read More about FSFTN"
+            android:layout_toRightOf="@id/ui"
+            android:textSize="@dimen/rating" />
+
+
+
+        <!-- Release Year -->
+        <TextView
+            android:id="@+id/timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ucontent"
+            android:layout_toRightOf="@id/ui"
+            android:textColor="@color/year"
+            android:text="http://fsftn.org/"
+            android:autoLink="web"
+            android:textSize="@dimen/year" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/id_layout_url"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/layout_url"
+        android:background="@color/list_divider"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="8dp"/>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_layout_url"
+        android:layout_marginTop="8dp"
+        android:id="@+id/layout_license"
+        >
+        <!-- Thumbnail Image -->
+        <ImageView
+            android:id="@+id/li"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/license" />
+
+        <!-- Movie Title -->
+        <TextView
+            android:id="@+id/ltitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/li"
+            android:layout_toRightOf="@id/li"
+            android:text="GNU GPL v3.0"
+            android:textSize="@dimen/title"
+            android:textStyle="bold" />
+
+        <!-- Rating -->
+        <TextView
+            android:id="@+id/lcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ltitle"
+            android:layout_marginTop="1dip"
+            android:text="Free, Copyleft License "
+            android:layout_toRightOf="@id/li"
+            android:textSize="@dimen/rating" />
+
+
+
+        <!-- Release Year -->
+        <TextView
+            android:id="@+id/ltimestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lcontent"
+            android:layout_toRightOf="@id/li"
+            android:textColor="@color/year"
+            android:text="http://www.gnu.org/copyleft/gpl.html"
+            android:autoLink="web"
+            android:textSize="@dimen/year" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/id_layout_license"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/layout_license"
+        android:background="@color/list_divider"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="8dp"/>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_layout_license"
+        android:layout_marginTop="8dp"
+        android:id="@+id/layout_org"
+        >
+        <!-- Thumbnail Image -->
+        <ImageView
+            android:id="@+id/oi"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/url" />
+
+        <!-- Movie Title -->
+        <TextView
+            android:id="@+id/otitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/oi"
+            android:layout_toRightOf="@id/oi"
+            android:text="FSFTN/SC15AndroidApp"
+            android:textSize="@dimen/title"
+            android:textStyle="bold" />
+
+        <!-- Rating -->
+        <TextView
+            android:id="@+id/ocontent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/otitle"
+            android:layout_marginTop="1dip"
+            android:text="Feel free to contribute"
+            android:layout_toRightOf="@id/oi"
+            android:textSize="@dimen/rating" />
+
+
+
+        <!-- Release Year -->
+        <TextView
+            android:id="@+id/otimestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ocontent"
+            android:layout_toRightOf="@id/oi"
+            android:textColor="@color/year"
+            android:text="https://github.com/FSFTN/SC15AndroidApp"
+            android:autoLink="web"
+            android:textSize="@dimen/year" />
+
+    </RelativeLayout>
+    <View
+        android:id="@+id/id_layout_org"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/layout_org"
+        android:background="@color/list_divider"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="8dp"/>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_layout_org"
+        android:layout_marginTop="8dp"
+        android:id="@+id/layout_credits"
+        >
+        <!-- Thumbnail Image -->
+        <ImageView
+            android:id="@+id/ci"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/programmer" />
+
+        <!-- Movie Title -->
+        <TextView
+            android:id="@+id/ctitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/ci"
+            android:layout_toRightOf="@id/ci"
+            android:text="Contributions"
+            android:textSize="@dimen/title"
+            android:textStyle="bold" />
+
+        <!-- Rating -->
+        <TextView
+            android:id="@+id/ccontent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ctitle"
+            android:layout_marginTop="1dip"
+            android:autoLink="web"
+
+            android:text="@string/link_contributors"
+            android:layout_toRightOf="@id/ci"
+            android:textSize="@dimen/rating"
+            android:clickable="true"
+            />
+
+
+
+        <!-- Release Year -->
+        <TextView
+            android:id="@+id/contrib_aravinth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ccontent"
+            android:layout_toRightOf="@id/ci"
+
+            android:textSize="13dp"
+            android:textStyle="italic"
+            android:text="@string/link_contributors_aravinthk"
+            android:textColor="@color/link_color"
+
+            android:clickable="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/link_contributors_rajanand"
+            android:layout_toRightOf="@id/ci"
+            android:layout_below="@id/contrib_aravinth"
+            android:id="@+id/contrib_rajanand"
+            android:textStyle="italic"
+            android:textSize="13dp"
+            android:textColor="@color/link_color"
+
+            android:clickable="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/link_contributors_suriya"
+            android:layout_toRightOf="@id/ci"
+            android:layout_below="@id/contrib_rajanand"
+            android:id="@+id/contrib_suriya"
+            android:textStyle="italic"
+            android:textSize="13dp"
+            android:textColor="@color/link_color"
+
+            android:linksClickable="true"
+            />
+
+
+
+
+    </RelativeLayout>
 </RelativeLayout>
