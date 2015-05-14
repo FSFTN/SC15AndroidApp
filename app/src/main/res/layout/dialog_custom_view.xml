@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_gray"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_gray"
+    android:padding="8dp"
+
+    >
+
+    <!-- Thumbnail Image -->
+    <ImageView
+        android:id="@+id/dthumbnail"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/notif" />
+
+    <!-- Movie Title -->
+    <TextView
+        android:id="@+id/dtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/dthumbnail"
+        android:layout_toRightOf="@id/dthumbnail"
+        android:textColor="@color/extreme_gray"
+        android:textSize="@dimen/title"
+        android:textStyle="bold" />
+
+    <!-- Rating -->
+    <TextView
+        android:id="@+id/dcontent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dtitle"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@id/dthumbnail"
+        android:textColor="@color/genre"
+
+        android:textSize="@dimen/rating" />
+
+
+    <!-- Release Year -->
+    <TextView
+        android:id="@+id/dtimestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dcontent"
+        android:layout_alignParentRight="true"
+        
+        android:textColor="@color/year"
+        android:textSize="@dimen/year"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="ok"
+        android:layout_marginTop="35dp"
+        android:layout_below="@id/dcontent"
+        android:layout_alignLeft="@id/dcontent"
+        android:layout_alignStart="@id/dcontent"
+        android:id="@+id/dbutton"/>
+
+</RelativeLayout>
+    </ScrollView>

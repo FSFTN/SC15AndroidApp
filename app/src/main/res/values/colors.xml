@@ -15,6 +15,7 @@
     <color name="notif_item_color">#cdcdcd</color>
     <color name="default_item_color">#dedede</color>
 
+    <color name="extreme_gray">#333333</color>
     <color name="very_dark_gray">#ababab</color>
     <color name="dark_gray">#cdcdcd</color>
     <color name="light_gray">#dedede</color>
