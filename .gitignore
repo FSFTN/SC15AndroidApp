@@ -30,3 +30,6 @@ proguard/
 
 # Idea IDE files
 .idea/
+
+*~
+.*~
