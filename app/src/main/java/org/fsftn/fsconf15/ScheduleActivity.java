@@ -27,50 +27,46 @@ public class ScheduleActivity extends Activity implements AbsListView.OnScrollLi
     public String dayx[][] = {
 
             // June 8
-            {"June 8","Free Software Philosophy", "Free software means that the software's users have freedom. (The issue is not about price.) We developed the GNU operating system so that users can have freedom in their computing.\n" +
-                    "\n" +
-                    "Specifically, free software means users have the four essential freedoms: (0) to run the program, (1) to study and change the program in source code form, (2) to redistribute exact copies, and (3) to distribute modified versions.", "09:00 AM", "gnu"},
+            {"June 8","Free Software Philosophy", "Free software means that the software's users have freedom. ", "10:00 AM", "gnu"},
             {"      ","GNU/Linux Installation", "Many computer users run a modified version of the GNU system every day, without realizing it. Through a peculiar turn of events, the version of GNU which is widely used today is often called “Linux”, and many of its users are not aware that it is basically the GNU system, developed by the GNU Project.\n" +
-                    "\n", "11:00 AM", "linux"},
+                    "\n", "11:45 AM", "linux"},
             {"      ","Intro to FS and Shell scripting", "A shell script is a computer program designed to be run by the Unix shell, a command line interpreter. The various dialects of shell scripts are considered to be scripting languages.", "02:00 PM", "terminal"},
-            {"      ","Git & Github", "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.", "04:00 PM", "url"},
+            {"      ","Git & Github", "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.", "03:00 PM", "url"},
 
 
             // June 9
-            {"June 9","Wikipedia", "Free software means that the software's users have freedom. (The issue is not about price.) We developed the GNU operating system in source code form, (2) to redistribute exact copies, and (3) to distribute modified versions.", "09:00 AM", "wiki"},
-            {"      ","Blender", "Many computer users run a modified version of the GNU system every day, without realizing it. Through a peculiar turn of events, the version of GNU which is widely used today is often called “Linux”, and many of its users are not aware that it is basically the GNU system, developed by the GNU Project.\n" +
-                    "\n", "11:00 AM", "blender"},
-            {"      ","Tamil Computing & Localization", "A shell script is a computer program designed to be run by the Unix shell, a command line interpreter. The various dialects of shell scripts are considered to be scripting languages.", "02:00 PM", "tamil"},
-            {"      ","Cultural Event", "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.", "04:00 PM", "culture"},
+            {"June 9","Wikipedia","A wiki is an application, typically a web application, which allows collaborative modification, extension, or deletion of its content and structure.", "09:30 AM", "wiki"},
+            {"      ","Blender", "Blender is a professional free and open-source 3D computer graphics software product used for creating animated films, visual effects, art, 3D printed models, interactive 3D applications and video games.", "10:15 AM", "blender"},
+            {"      ","Tamil Computing & Localization", "Software localization is the process of adapting a software product to the linguistic, cultural and technical requirements of a target market.", "02:00 PM", "tamil"},
+            {"      ","Cultural Event", ": Someone kindly fill this up - I know nothing about this :", "04:00 PM", "culture"},
+
+
+
 
             // June 10
-            {"June 10","Ruby", "Free software means that the software's users have freedom. (The issue is not about price.)", "09:00 AM", "ruby"},
-            {"      ","HTML, CSS & JS", "Many computer users run a modified version of the GNU system every day, without realizing it. Through a peculiar turn of events, the version of GNU which is widely used today is often called “Linux”, and many of its users are not aware that it is basically the GNU system, developed by the GNU Project.\n" +
-                    "\n", "11:00 AM", "html"},
-            {"      ","Firefox OS & Contributing to Mozilla", "A shell script is a computer program designed to be run by the Unix shell, a command line interpreter. The various dialects of shell scripts are considered to be scripting languages.", "02:00 PM", "mozilla"},
+            {"June 10","Ruby", "Ruby is a dynamic, reflective, object-oriented, general-purpose programming language. It was designed and developed in the mid-1990s by Yukihiro Matsumoto in Japan.", "09:30 AM", "ruby"},
+            {"      ","HTML, CSS & JS", "HTML5 is a core technology markup language of the Internet used for structuring and presenting content for the World Wide Web. As of October 2014 this is the final and complete fifth revision of the HTML standard of the World Wide Web Consortium (W3C). The previous version, HTML 4, was standardised in 1997.", "02:00 AM", "html"},
+            {"      ","Firefox OS & Contributing to Mozilla", "Firefox OS is designed to provide a complete, community-based alternative system for mobile devices, using open standards and approaches such as HTML5 applications, JavaScript, a robust privilege model, open web APIs to communicate directly with cellphone hardware, and application marketplace.", "03:40 PM", "mozilla"},
 
             // June 11
-            {"June 11","Ruby on Rails", "Free software means that the software's users have freedom. (The issue is not about price.) ", "09:00 AM", "rails"},
-            {"      ","Building a Web App using RoR", "Many computer users run a modified version of the GNU system every day, without realizing it. Through a peculiar turn of events, the version of GNU which is widely used today is often called “Linux”, and many of its users are not aware that it is basically the GNU system, developed by the GNU Project.\n" +
-                    "\n", "11:00 AM", "rails"},
-            {"      ","Project Showcase", "A shell script is a computer program designed to be run by the Unix shell, a command line interpreter. The various dialects of shell scripts are considered to be scripting languages.", "02:00 PM", "project"},
+            {"June 11","Ruby on Rails", "Ruby on Rails, or simply Rails, is an open source web application framework written in Ruby. Rails is a model–view–controller (MVC) framework, providing default structures for a database, a web service, and web pages.", "09:30 AM", "rails"},
+            {"      ","Building a Web App using RoR", "RoR is designed to make programming web applications easier by making assumptions about what every developer needs to get started. It allows you to write less code while accomplishing more than many other languages and frameworks.", "11:00 AM", "rails"},
+            {"      ","Project Showcase", "-- Someone kindly fill this up  ---", "03:10 PM", "project"},
 
             // June 12
-            {"June 12","Internet Surveillance, Privacy, Tor, Mesh Networks", "Free software means that the software's users have freedom. (The issue is not about price.) We developed the GNU operating system so that users can have freedom in their computin","09:00 AM", "tor"},
-            {"      ","Intro to Node.js, MongoDB and Meteor", "Many computer users run a modified version of the GNU system every day, without realizing it. Through a peculiar turn of events, the version of GNU which is widely used today is often called “Linux”, and many of its users are not aware that it is basically the GNU system, developed by the GNU Project.\n" +
-                    "\n", "11:00 AM", "nodejs"},
-            {"      ","Open Hardware", "A shell script is a computer program designed to be run by the Unix shell, a command line interpreter. The various dialects of shell scripts are considered to be scripting languages.", "02:00 PM", "arduino"},
-            {"      ","Project Showcase Continuation", "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.", "04:00 PM", "project"},
+            {"June 12","Internet Surveillance, Privacy, Tor, Mesh Networks", "Tor is free software for enabling anonymous communication. The name is an acronym derived from the original software project name The Onion Router.","09:30 AM", "tor1"},
+            {"      ","Intro to Node.js, MongoDB and Meteor", "Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.", "11:15 AM", "nodejs"},
+            {"      ","Open Hardware", "Arduino is an open-source computer hardware and software company, project and user community that designs and manufactures kits for building digital devices and interactive objects that can sense and control the physical world.[1] Arduino boards may be purchased preassembled, or as do-it-yourself kits; at the same time, the hardware design information is available for those who would like to assemble an Arduino from scratch.", "02:00 PM", "arduino"},
+            {"      ","Project Showcase Continuation", "-- Someone kindly fill this up  ---", "03:10 PM", "project"},
 
 
             // June 13
-            {"June 13","Cloud & Containers", "Free software means that the software's users have freedom.", "09:00 AM", "cloud"},
-            {"      ","Getting Started with Free Software Contribution", "Many computer users run a modified version of the GNU system every day, without realizing it. Through a peculiar turn of events, the version of GNU which is widely used today is often called “Linux”, and many of its users are not aware that it is basically the GNU system, developed by the GNU Project.\n" +
-                    "\n", "11:00 AM", "linux"},
-            {"      ","Net Neutrality", "A shell script is a computer program designed to be run by the Unix shell, a command line interpreter. The various dialects of shell scripts are considered to be scripting languages.", "02:00 PM", "terminal"},
-            {"      ","SWIFT", "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.", "04:00 PM", "url"},
-            {"      ","How to form a GLUG & What's next?", "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.", "04:00 PM", "url"},
-            {"      ","Certificate Distribution", "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.", "04:00 PM", "url"},
+            {"June 13","Cloud & Containers", "loud computing relies on sharing of resources to achieve coherence and economies of scale, similar to a utility (like the electricity grid) over a network. At the foundation of cloud computing is the broader concept of converged infrastructure and shared services.", "09:30 AM", "cloud"},
+            {"      ","Getting Started with Free Software Contribution", "The FSF high-priority projects list serves to foster work on projects that are important for increasing the adoption and use of free software and free software operating systems. Our list helps guide volunteers and supporters to projects where their skills can be utilized, whether they be in coding, graphic design, writing, or activism. The FSF does not ask to run or control these projects; some of them are in fact GNU projects (and all are welcome to apply), but we are happy to encourage them whether they are done under our auspices or not.", "11:15 AM", "gnu"},
+            {"      ","Net Neutrality", "Net neutrality (also network neutrality, Internet neutrality, or net equality) is the principle that Internet service providers and governments should treat all data on the Internet equally, not discriminating or charging differentially by user, content, site, platform, application, type of attached equipment, or mode of communication.", "12:15 PM", "nn"},
+            {"      ","SWIFT", "-- Someone kindly fill this up - I honestly have no idea what this is ---", "02:00 PM", "ques"},
+            {"      ","How to form a GLUG & What's next?", "GNU/Linux User Group (GLUG) is a private, generally non-profit or not-for-profit organization that provides support and/or education for Linux users, particularly for inexperienced users. ", "02:30 PM", "gnu"},
+            {"      ","Certificate Distribution", "-- Someone kindly fill this up  ---", "03:10 PM", "certificate"},
 
 
 
