@@ -324,25 +324,13 @@
             android:clickable="true"
             />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/link_contributors_rajanand"
-            android:layout_toRightOf="@id/ci"
-            android:layout_below="@id/contrib_aravinth"
-            android:id="@+id/contrib_rajanand"
-            android:textStyle="italic"
-            android:textSize="13sp"
-            android:textColor="@color/link_color"
 
-            android:clickable="true"
-            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/link_contributors_suriya"
             android:layout_toRightOf="@id/ci"
-            android:layout_below="@id/contrib_rajanand"
+            android:layout_below="@id/contrib_aravinth"
             android:id="@+id/contrib_suriya"
             android:textStyle="italic"
             android:textSize="13sp"

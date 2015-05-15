@@ -213,6 +213,7 @@ public class MainActivity extends ActionBarActivity {
 
     public void openSchedule(View view) {
         Intent targetIntent = new Intent(this, ScheduleActivity.class);
+        targetIntent.putExtra("session_id", 0);
         startActivity(targetIntent);
     }
 
