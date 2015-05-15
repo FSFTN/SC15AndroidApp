@@ -19,8 +19,7 @@ public class AboutActivity extends ActionBarActivity {
         contribList.setMovementMethod(LinkMovementMethod.getInstance());
         TextView contribAr = (TextView) findViewById(R.id.contrib_aravinth);
         contribAr.setMovementMethod(LinkMovementMethod.getInstance());
-        TextView contribRa = (TextView) findViewById(R.id.contrib_rajanand);
-        contribRa.setMovementMethod(LinkMovementMethod.getInstance());
+        
         TextView contribSu = (TextView) findViewById(R.id.contrib_suriya);
         contribSu.setMovementMethod(LinkMovementMethod.getInstance());
 
