@@ -23,7 +23,7 @@
 
     <!-- Movie Title -->
     <TextView
-        android:id="@+id/dtitle"
+        android:id="@+id/ds_ask_ques"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/dthumbnail"
@@ -34,10 +34,10 @@
 
     <!-- Rating -->
     <TextView
-        android:id="@+id/dcontent"
+        android:id="@+id/ds_fb"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dtitle"
+        android:layout_below="@id/ds_ask_ques"
         android:layout_marginTop="1dip"
         android:layout_toRightOf="@id/dthumbnail"
         android:textColor="@color/genre"
@@ -50,7 +50,7 @@
         android:id="@+id/dtimestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dcontent"
+        android:layout_below="@id/ds_fb"
         android:layout_alignParentRight="true"
         
         android:textColor="@color/year"
@@ -62,10 +62,10 @@
         android:layout_height="40dp"
         android:text="ok"
         android:layout_marginTop="35dp"
-        android:layout_below="@id/dcontent"
-        android:layout_alignLeft="@id/dcontent"
-        android:layout_alignStart="@id/dcontent"
-        android:id="@+id/dbutton"/>
+        android:layout_below="@id/ds_fb"
+        android:layout_alignLeft="@id/ds_fb"
+        android:layout_alignStart="@id/ds_fb"
+        android:id="@+id/ds_send_button"/>
 
 </RelativeLayout>
     </ScrollView>

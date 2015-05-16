@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,12 +31,20 @@ public class ContactsActivity extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch(item.getItemId()) {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            case R.id.contact_action_agenda:
+                Intent targetIntent = new Intent(this, ScheduleActivity.class);
+                targetIntent.putExtra("session_id", 0);
+                startActivity(targetIntent);
+                break;
+
+
+            case R.id.contact_action_about:
+                startActivity(new Intent(this, AboutActivity.class));
+                break;
         }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -63,4 +72,16 @@ public class ContactsActivity extends ActionBarActivity {
         Intent callIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mailID));
         startActivity(callIntent);
     }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_MENU)
+            return true;
+        return super.onKeyDown(keyCode, event);
+    }
+
+
+
+
+
+
 }

@@ -1,8 +1,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-    <item android:id="@+id/action_about" android:title="@string/str_action_about"
-        android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="org.fsftn.fsconf15.MainActivity"
+    android:layout_width="wrap_content"
+    android:layout_height = "wrap_content">
+
+
+    <item
+        android:id="@+id/overflow_menu"
+        android:icon="@drawable/ic_action_overflow"
+        android:title="Overflow"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/mi_sched"
+                android:title="Agenda">
+            </item>
+
+            <item
+                android:id="@+id/mi_about_us"
+                android:title="About">
+            </item>
+
+        </menu>
+    </item>
+
 </menu>
+
+

@@ -1,17 +1,22 @@
 package org.fsftn.fsconf15;
 
-import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -20,7 +25,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class ScheduleActivity extends Activity implements AbsListView.OnScrollListener{
+public class ScheduleActivity extends ActionBarActivity implements AbsListView.OnScrollListener{
 
 
 
@@ -51,7 +56,7 @@ public class ScheduleActivity extends Activity implements AbsListView.OnScrollLi
             // June 11
             {"June 11","Ruby on Rails", "Ruby on Rails, or simply Rails, is an open source web application framework written in Ruby. Rails is a model–view–controller (MVC) framework, providing default structures for a database, a web service, and web pages.", "09:30 AM", "rails"},
             {"      ","Building a Web App using RoR", "RoR is designed to make programming web applications easier by making assumptions about what every developer needs to get started. It allows you to write less code while accomplishing more than many other languages and frameworks.", "11:00 AM", "rails"},
-            {"      ","Project Showcase", "-- Someone kindly fill this up  ---", "03:10 PM", "project"},
+            {"      ","Project Showcase", "-- Someone kindly fill this up  ---\n-- Someone kindly fill this up  ---\n-- Someone kindly fill this up  ---\n-- Someone kindly fill this up  ---\n-- Someone kindly fill this up  ---\n", "03:10 PM", "project"},
 
             // June 12
             {"June 12","Internet Surveillance, Privacy, Tor, Mesh Networks", "Tor is free software for enabling anonymous communication. The name is an acronym derived from the original software project name The Onion Router.","09:30 AM", "tor1"},
@@ -82,6 +87,9 @@ public class ScheduleActivity extends Activity implements AbsListView.OnScrollLi
 
     Intent starterIntent;
 
+    String etFbStr;
+    public EditText etFb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,13 +101,14 @@ public class ScheduleActivity extends Activity implements AbsListView.OnScrollLi
 
         sessionId = starterIntent.getExtras().getInt("session_id");
 
+        getSupportActionBar().setTitle(dayx[sessionIndex[sessionId]][0]);
 
         // Construct the data source
         ArrayList<Event> arrayOfUsers = new ArrayList<Event>();
         // Create the adapter to convert the array to views
-        EventAdapter adapter = new EventAdapter(this, arrayOfUsers);
+        final EventAdapter adapter = new EventAdapter(this, arrayOfUsers);
         // Attach the adapter to a ListView
-        ListView listView = (ListView) findViewById(R.id.schedListView);
+        final ListView listView = (ListView) findViewById(R.id.schedListView);
         listView.setOnScrollListener(this);
         listView.setAdapter(adapter);
 
@@ -108,9 +117,6 @@ public class ScheduleActivity extends Activity implements AbsListView.OnScrollLi
 
         Event event;
 
-        //TextView dayView = (TextView)findViewById(R.id.day_indicator);
-        //dayView.set
-        ((TextView)findViewById(R.id.day_indicator)).setText(dayx[sessionIndex[sessionId]][0]);
         for(int i=sessionIndex[sessionId];i<sessionCount[sessionId]+sessionIndex[sessionId];i++) {
             event = new Event(dayx[i]);
             adapter.add(event);
@@ -119,7 +125,62 @@ public class ScheduleActivity extends Activity implements AbsListView.OnScrollLi
         adapter.add(new Event("down"));
         adapter.add(new Event());
 
+
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+
+
+                Event row = adapter.getItem(position);
+                invokeDialog(row.title, row.content, row.timestamp, row.iurl);
+            }
+        });
+
+
+
+
     }
+
+
+    private void invokeDialog(String title, String message, String timestamp, String iurl){
+
+        final Dialog dialog = new Dialog(ScheduleActivity.this);
+        dialog.setContentView(R.layout.dialog_sched_view);
+        dialog.setTitle(title);
+
+
+        // set the custom dialog components - text, image and button
+
+
+
+        TextView dTimestamp = (TextView) dialog.findViewById(R.id.dtimestamp);
+        dTimestamp.setText(timestamp);
+
+        etFb = (EditText) dialog.findViewById(R.id.ds_fb);
+
+
+
+        ImageView image = (ImageView) dialog.findViewById(R.id.dthumbnail);
+
+        image.setImageResource(ScheduleActivity.this.getResources().getIdentifier(iurl,"drawable",ScheduleActivity.this.getPackageName()));
+
+        Button dialogButton = (Button) dialog.findViewById(R.id.ds_send_button);
+        // if button is clicked, close the custom dialog
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ScheduleActivity.this, "Thou speaketh : " + etFb.getText().toString(), Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+
+            }
+        });
+
+        dialog.show();
+    }
+
 
 
     @Override
@@ -134,13 +195,43 @@ public class ScheduleActivity extends Activity implements AbsListView.OnScrollLi
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(item.getItemId()){
+
+            case R.id.action_june_08:
+                starterIntent.putExtra("session_id",0);
+                startActivity(starterIntent); finish();
+                break;
+
+            case R.id.action_june_09:
+                starterIntent.putExtra("session_id",1);
+                startActivity(starterIntent); finish();
+                break;
+
+
+            case R.id.action_june_10:
+                starterIntent.putExtra("session_id",2);
+                startActivity(starterIntent); finish();
+                break;
+
+
+            case R.id.action_june_11:
+                starterIntent.putExtra("session_id",3);
+                startActivity(starterIntent); finish();
+                break;
+
+
+            case R.id.action_june_12:
+                starterIntent.putExtra("session_id",4);
+                startActivity(starterIntent); finish();
+                break;
+
+
+            case R.id.action_june_13:
+                starterIntent.putExtra("session_id",5);
+                startActivity(starterIntent); finish();
+                break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -205,6 +296,11 @@ public class ScheduleActivity extends Activity implements AbsListView.OnScrollLi
     }
 
 
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_MENU)
+            return true;
+        return super.onKeyDown(keyCode, event);
+    }
 
 
 

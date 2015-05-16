@@ -2,6 +2,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="org.fsftn.fsconf15.ScheduleActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+    <item android:id="@+id/action_june_08" android:title="June 08"
         android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_june_09" android:title="June 09"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_june_10" android:title="June 10"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_june_11" android:title="June 11"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_june_12" android:title="June 12"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_june_13" android:title="June 13"
+        android:orderInCategory="100" app:showAsAction="never" />
+
 </menu>

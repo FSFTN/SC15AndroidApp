@@ -5,10 +5,9 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,15 +20,10 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Calendar;
-import java.util.Map;
-import java.util.Set;
 
 
 public class NotificationsActivity extends ActionBarActivity {
@@ -102,9 +96,9 @@ public class NotificationsActivity extends ActionBarActivity {
 
 
         // set the custom dialog components - text, image and button
-        TextView dTitle = (TextView) dialog.findViewById(R.id.dtitle);
+        TextView dTitle = (TextView) dialog.findViewById(R.id.ds_ask_ques);
         dTitle.setText(title);
-        TextView dContent = (TextView) dialog.findViewById(R.id.dcontent);
+        TextView dContent = (TextView) dialog.findViewById(R.id.ds_fb);
         dContent.setText(message);
         TextView dTimestamp = (TextView) dialog.findViewById(R.id.dtimestamp);
         dTimestamp.setText(timestamp.substring(0,timestamp.length() - 5));
@@ -127,7 +121,7 @@ public class NotificationsActivity extends ActionBarActivity {
 
         }
 
-        Button dialogButton = (Button) dialog.findViewById(R.id.dbutton);
+        Button dialogButton = (Button) dialog.findViewById(R.id.ds_send_button);
         // if button is clicked, close the custom dialog
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,14 +146,23 @@ public class NotificationsActivity extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch(item.getItemId()) {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            case R.id.notif_action_agenda:
+                Intent targetIntent = new Intent(this, ScheduleActivity.class);
+                targetIntent.putExtra("session_id", 0);
+                startActivity(targetIntent);
+                break;
+
+
+            case R.id.notif_action_about:
+                startActivity(new Intent(this, AboutActivity.class));
+                break;
         }
 
-        return super.onOptionsItemSelected(item);
+
+            return super.onOptionsItemSelected(item);
+
     }
 
     private class NotificationsAdapter extends ArrayAdapter<JSONObject> {
@@ -218,18 +221,18 @@ public class NotificationsActivity extends ActionBarActivity {
 
                 case 0:
                     thumbnailView.setImageResource(R.drawable.notif);
-                    nView.setBackgroundColor(getResources().getColor(R.color.notif_item_color));
+                    //nView.setBackgroundColor(getResources().getColor(R.color.notif_item_color));
 
                     break;
 
                 case 1:
                     thumbnailView.setImageResource(R.drawable.event);
-                    nView.setBackgroundColor(getResources().getColor(R.color.event_item_color));
+                    //nView.setBackgroundColor(getResources().getColor(R.color.event_item_color));
                     break;
 
                 default:
                     thumbnailView.setImageResource(R.drawable.ques);
-                    nView.setBackgroundColor(getResources().getColor(R.color.default_item_color));
+                    //nView.setBackgroundColor(getResources().getColor(R.color.default_item_color));
 
 
             }
@@ -237,5 +240,13 @@ public class NotificationsActivity extends ActionBarActivity {
             return nView;
         }
     }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_MENU)
+            return true;
+        return super.onKeyDown(keyCode, event);
+    }
+
+
 
 }
