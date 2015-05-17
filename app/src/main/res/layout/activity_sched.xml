@@ -6,20 +6,9 @@
     android:paddingBottom="0dp"
     tools:context="org.fsftn.fsconf15.ScheduleActivity">
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:id="@+id/day_indicator"
-        android:background="@color/dark_gray"
-        android:textSize="25sp"
-        android:text="June 8"
-        android:gravity="center"
-
-        />
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/day_indicator"
         android:id="@+id/schedListView"
         android:divider="@color/list_divider"
         android:dividerHeight="1dp"

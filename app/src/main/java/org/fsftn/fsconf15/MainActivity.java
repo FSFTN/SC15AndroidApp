@@ -8,23 +8,28 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.widget.Toast;
+
 import com.google.android.gms.common.AccountPicker;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+
 import java.io.IOException;
+import java.lang.reflect.Field;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -44,6 +49,16 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // setup action bar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.fsftn_logo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setTitle("  Summer Camp 2K15");
+        getSupportActionBar().setSubtitle("   Organized by FSFTN");
+
+        makeActionOverflowMenuShown();
+
+
         context = this;
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -61,6 +76,11 @@ public class MainActivity extends ActionBarActivity {
             Log.i("fsconf", "No valid Google Play Services APK found.");
         }
     }
+
+
+
+
+
 
     private void registerInBackground() {
         new AsyncTask() {
@@ -143,7 +163,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -151,13 +171,17 @@ public class MainActivity extends ActionBarActivity {
 
         switch(item.getItemId()){
 
-            case R.id.action_settings:
-                return true;
-
-            case R.id.action_about:
+            case R.id.mi_about_us:
                 startActivity(new Intent(this, AboutActivity.class));
                 return true;
+
+            case R.id.mi_sched:
+                Intent targetIntent = new Intent(this, ScheduleActivity.class);
+                targetIntent.putExtra("session_id", 0);
+                startActivity(targetIntent);
+                return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -238,4 +262,20 @@ public class MainActivity extends ActionBarActivity {
             }
         }
     }
+
+
+    private void makeActionOverflowMenuShown() {
+        //devices with hardware menu button (e.g. Samsung Note) don't show action overflow menu
+        try {
+            ViewConfiguration config = ViewConfiguration.get(this);
+            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+            if (menuKeyField != null) {
+                menuKeyField.setAccessible(true);
+                menuKeyField.setBoolean(config, false);
+            }
+        } catch (Exception e) {
+            Log.d(TAG, e.getLocalizedMessage());
+        }
+    }
+
 }
