@@ -66,7 +66,7 @@ public class ScheduleActivity extends ActionBarActivity implements AbsListView.O
 
 
             // June 13
-            {"June 13","Cloud & Containers", "loud computing relies on sharing of resources to achieve coherence and economies of scale, similar to a utility (like the electricity grid) over a network. At the foundation of cloud computing is the broader concept of converged infrastructure and shared services.", "09:30 AM", "cloud"},
+            {"June 13","Cloud & Containers", "Cloud computing relies on sharing of resources to achieve coherence and economies of scale, similar to a utility (like the electricity grid) over a network. At the foundation of cloud computing is the broader concept of converged infrastructure and shared services.", "09:30 AM", "cloud"},
             {"      ","Getting Started with Free Software Contribution", "The FSF high-priority projects list serves to foster work on projects that are important for increasing the adoption and use of free software and free software operating systems. Our list helps guide volunteers and supporters to projects where their skills can be utilized, whether they be in coding, graphic design, writing, or activism. The FSF does not ask to run or control these projects; some of them are in fact GNU projects (and all are welcome to apply), but we are happy to encourage them whether they are done under our auspices or not.", "11:15 AM", "gnu"},
             {"      ","Net Neutrality", "Net neutrality (also network neutrality, Internet neutrality, or net equality) is the principle that Internet service providers and governments should treat all data on the Internet equally, not discriminating or charging differentially by user, content, site, platform, application, type of attached equipment, or mode of communication.", "12:15 PM", "nn"},
             {"      ","SWIFT", "-- Someone kindly fill this up - I honestly have no idea what this is ---", "02:00 PM", "ques"},
@@ -135,7 +135,8 @@ public class ScheduleActivity extends ActionBarActivity implements AbsListView.O
 
 
                 Event row = adapter.getItem(position);
-                invokeDialog(row.title, row.content, row.timestamp, row.iurl);
+                if(row.type != -1)
+                    invokeDialog(row.title, row.content, row.timestamp, row.iurl);
             }
         });
 

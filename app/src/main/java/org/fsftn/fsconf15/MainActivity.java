@@ -51,7 +51,7 @@ public class MainActivity extends ActionBarActivity {
 
         // setup action bar
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.drawable.gnu2);
+        getSupportActionBar().setLogo(R.drawable.fsftn_logo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setTitle("  Summer Camp 2K15");
         getSupportActionBar().setSubtitle("   Organized by FSFTN");
