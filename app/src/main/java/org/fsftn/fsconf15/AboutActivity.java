@@ -1,8 +1,10 @@
 package org.fsftn.fsconf15;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -19,7 +21,7 @@ public class AboutActivity extends ActionBarActivity {
         contribList.setMovementMethod(LinkMovementMethod.getInstance());
         TextView contribAr = (TextView) findViewById(R.id.contrib_aravinth);
         contribAr.setMovementMethod(LinkMovementMethod.getInstance());
-        
+
         TextView contribSu = (TextView) findViewById(R.id.contrib_suriya);
         contribSu.setMovementMethod(LinkMovementMethod.getInstance());
 
@@ -41,16 +43,31 @@ public class AboutActivity extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch(item.getItemId()){
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            case R.id.about_action_agenda:
+                Intent targetIntent = new Intent(this, ScheduleActivity.class);
+                targetIntent.putExtra("session_id", 0);
+                startActivity(targetIntent);
+                break;
+
+            case R.id.about_action_home:
+                startActivity(new Intent(this,MainActivity.class));
+                break;
         }
+
 
         return super.onOptionsItemSelected(item);
     }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_MENU)
+            return true;
+        return super.onKeyDown(keyCode, event);
+    }
+
 }
+
 
 /*
 
